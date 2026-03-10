@@ -1,0 +1,161 @@
+<!--
+--                        ▁▂▃▄▅▅▆▆▇▇█◘▇▇▇▆▆▅▅▃▂▂▁                              
+--                   ▁▃▄▆▇◘▀▀▀▔▔▔▔▁▁▂▂▂▁▁▔▔▔▔▀▀▀◘▇▅▄▂                          
+--                ▂▄▆▛▀▀▔▖ ◨▆▝▊▐▌▐▍█▐█▐▍▐∁▊▗▊▅▖▃▖▔▔▀▀▇▆▃▁                      
+--             ▂▄▇▛▀▔   ▝▜▖ ▜▌▜▎◘▝◼▀≞▀╩▍◚▐▌▟▍▊▗▛▔▂▆▗▖▔▔▀▜▆▃▁                   
+--           ▗▅▛▀▔▁▁◖▂▃▂ ▝≽╴▔▔▔▂▂▃▄▄██▙▄▃▃▂▁▔▘▝▘ ▟▌◙◢▘▅◩▁▝▜▊▄▁                 
+--         ▃▟▛▀▗▂◨▙▛▃◂◘▘ ▁▃▅▆▇███████████████▇▅▄▂▔▝▀▚▛▚▞▘▃▂▔▜▊▅▂               
+--       ▗▅▛▀▔▗▞▀▅▞⊛┛▎▂▄▇█████◘◘▀▀▀▀▔▔▀▀▀▀▀◘▜████▓▆▃▁▝▀▅◤▅▀▗▖▔▜▊▖              
+--      ▗▇▛▔▁▝▆▞▜▖▔▁▃▆████◘▀▔▔               ▔▀▀▜████▅▖▔▀▗≸▀▘▁▃▝▜▙▖            
+--     ▟█▘╲▃▛▀▅▞▀▔▗▇███▛▀▔                       ▔▀▜███▆▖▔▎▃▆▀▔◢▝▜▊▖           
+--    ▐▊▘ ◥▙▃▀◆▔▗▟███▛▔                            ▔▀▜███▅▁▔▁▂▅◼▂▖▜▊▖          
+--   ▐█▘▖▂ ◗▔◚▎▗███▛▘╲                               ▔▀███▙▖▝▙▅⊠▀▔▔▜▊▖         
+--  ▗█▛ ◚▀◼▅▖ ▗███▛▘                                   ▝███▙▂▔▂▂▄▅▎▝▜▙         
+--  ▟▊▘▗▛▜⊛●▔▗███▛▘                                     ▝███▙ ▝▄▲≢▀▘▐█▍        
+-- ▗█▌ ▃▄╱▀▘ ▟████▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓████▓▓█▓▓▓▓▓██▓▇▇▆▄▁  
+-- ▐█▎ ▀●▅▟ ▐◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘◘▜████▅▂
+-- ╠█ ≘⊠⊛⊛╗ ▂▂▂▂▂         ▂▃▃▂              ▁▂▃▂▁                        ▔▀▜██▙
+-- █▊ ▝▀▀▀▘ ▐███▎      ▂▅∌▀▀▀▀⊠▅▁         ▗≸▀▀▀▀▀▆▖                        ▐███
+-- ▜█  ▅╗▪◣ ▐███▍      ▝▔      ▔▘        ∺▔╲     ▔╹                      ▁▃███▛
+-- ▐█▎ ▀▀▀▀ ▝███▋  ▐▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▍ ▗▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇████▀▔
+-- ▝█▌ ▐▃▛▐▎ ▜███▖ ▝▜█████████████████████████████████▛  ▟██████████████▊◘▀▀▔  
+--  ▜▊▖▔▗▅◼▆▖▝▜██▊▖ ▝▜███▙▁                     ▗▇███▛▔ ▗███▛  ◚▀◂┛ ▐█▍        
+--  ▝█▙ ▝⊛▀▔▄▂▝███▊▖ ▔▜███▇▄▂                ▁▃▆████▀  ▗███▛▎▗▃▂   ▗█▛╲        
+--   ▐█▖ ◨▛▂▄◗▂▝▜██▊▖ ▔◚▜████▆▃▂          ▁▂▄▇████▛▘ ▁▅███▛▘▁▔▔▀⊠▅╴▟▊▘         
+--    ▐▊▖▝▀▂▅≸▘ ▝▜███▆▖ ▔◚▜██████▇▆▅▅▅▅▅▆▇█████▛▀▔ ▁▃▇███▀▔▗▛▀▅▖◥∟▟▊▘          
+--     ▜█▖▝▀▔▁▃●╸▔▝▜███▆▃▁ ▔▀▀◘████████████▛◘▀▔▔ ▂▅▇███▛▘◢▄▁▔▀■▌▗▟▊▘           
+--      ▝▜▙▁◀▀▔≸▀▇▎▔▀▜████▆▄▂▁ ▔▔▔▔▀▀▀▀▀▔▔▔  ▂▃▅▇████▀▔▂▂▜▟▀▅◡ ▗▇▛▘            
+--       ▔▜▇▃▁▝⊛▀▔◡▅◣▖▔▀▜█████▇▆▅▄▃▃▃▃▃▃▄▅▅▆▇████▊▀▀▔▃▄▖◚▆▔▀▔▂▅▊▘╲             
+--         ▝▜▇▃▁ ◨▛▆▛▗◤▃▖▔▀▀◘▜███████████████◘▀▀▔▁▂▲▅▀▟▜▌◚▔▂▅█▀▔               
+--           ▝▜▇▄▂▔▔▐▌▟▘▟▘▌ ▂▂▔▔▔▀▀▀▀▀▀▀▀▀▔▔▁▗▖▅∺▍▜▅▝▙▔▔▔▃▅█▀▔                 
+--             ▔▀▜▇▃▂▔▔▝▙≸▘ ╚▍▘▟∩▋▗╗▗╗ ▗▆ ▐▋▜▞▊▝▙▝▬▀▔▔▂▅▇▛▀▔                   
+--               ▔▔▀◘▇▅▃▁  ▝▘╩∃▊▗▍▟▜▛▊ ∃█ ▝▜▞▘▝▀▔▁▂▄▆▇▀▀▔                      
+--                   ▔▀▀◘▇▆▅▄▃▂▁▔ ▔▔▔▔  ▀ ▁▔▂▃▅▆▇◘▀▀▔▔                         
+--                        ▔▔▀▀▀▀◘◘■▇▇▇▇■■◘◘▀▀▀▔▔▔                              
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Andrew Stein</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pathway+Gothic+One&family=Inconsolata:wght@200..900&family=Open+Sans:ital,wght@0,300..800;1,300..800"
+        rel="stylesheet">
+    <link href="./index.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="outer">
+        <div id="container">
+            <canvas id="c"></canvas>
+            <div id="resume">
+                <h1 id="andrew-stein"><a href="https://texodus.github.io/"><span>ANDREW</span> <span>STEIN</span></a></h1>
+                <p id="links">
+                    <a href="https://github.com/texodus"><i class="fab fa-github"></i> Github</a> - <a
+                        href="https://www.linkedin.com/in/steinlink/"><i class="fab fa-linkedin"></i> LinkedIn</a> - <a
+                        href="mailto:steinlink@gmail.com"><i class="fab fa-google"></i> GMail</a>
+                </p>
+                <h1 id="media">Media</h1>
+                <ul>
+                    <li>
+                        <a href="https://www.youtube.com/watch?v=0ut-ynvBpGI">2022 Open Source in Finance Forum -
+                            Perspective in
+                            3D</a>
+                    </li>
+                    <li>
+                        <a
+                            href="https://podcasts.apple.com/us/podcast/finos-perspective-project-interview-andrew-stein-j/id1512371068?i=1000522927186">FINOS
+                            Open Source in Finance Podcast - Interview with Andrew Stein of J.P.Morgan Chase</a><br />
+                        (<a
+                            href="https://podcasts.apple.com/us/podcast/finos-perspective-project-interview-andrew-stein-j/id1512371068?i=1000522927186">Apple
+                            Music</a>)
+                        (<a
+                            href="https://open.spotify.com/episode/1EuwIGLar7sccskDLqUCbr?si=NjidjWXQQfWK25x4pU9LCA&amp;nd=1">Spotify</a>)
+                        (<a
+                            href="https://anchor.fm/finos/episodes/The-FINOS-Perspective-Project---Interview-With-Andrew-Stein-of-J-P--Morgan-Chase-e11g4aq">Anchor</a>)
+                    </li>
+                    <li>
+                        <a href="https://www.finos.org/blog/us-open-source-in-fintech-meetup-31-march-21">FINOS Meetup -
+                            How
+                            To
+                            Build An Order Book Simulation With Perspective</a>
+                    </li>
+                    <li>
+                        <a href="https://www.stacresearch.com/GSL-Fall2020-realtime-data-panel">Global STAC Live, Fall
+                            2020
+                            -
+                            Realtime Data Visualization Panel</a>
+                    </li>
+                    <li>
+                        <a href="https://www.finos.org/hubfs/FINOS/assets/FINOS%20Perspective%20Case%20Study.pdf">Perspective:
+                            A
+                            Financial Services Open Source Success Story - Case Study</a>
+                    </li>
+                </ul>
+                <h1 id="open-source">Open Source</h1>
+                <ul>
+                    <li>
+                        <a href="https://github.com/perspective-dev/perspective/"><code>perspective</code></a> Streaming
+                        pivot
+                        visualization via WebAssembly (Javascript . C++ . Python . Rust)
+                    </li>
+                    <li>
+                        <a href="https://github.com/finos/regular-table"><code>regular-table</code></a> A high
+                        performance
+                        <code>&lt;table&gt;</code> library, for async and virtual data models (JavaScript)
+                    </li>
+                    <li>
+                        <a href="https://github.com/texodus/regular-layout"><code>regular-layout</code></a> A
+                        persistent layout component (JavaScript)
+                    </li>
+                    <li>
+                        <a href="https://github.com/texodus/minml"><code>minml</code></a> A self-compiling programming
+                        language, with <a href="https://texodus.github.io/minml/">Tetris</a> (Minml)
+                    </li>
+                </ul>
+                <h1 id="work">Work</h1>
+                <ul id="works">
+                    <li>
+                        <p><span>Prospective Co.</span><br />
+                            06/2022 - Founder + CTO</p>
+                    </li>
+                    <li>
+                        <p><span>J.P.Morgan Chase</span><br />
+                            1/2017 - 04/2021 (Executive Director)<br />
+                            5/2014 - (Vice President)</p>
+                    </li>
+                    <li>
+                        <p><span>Credit Suisse</span><br />
+                            10/2012 - 10/2013 (Associate Vice President)</p>
+                    </li>
+                    <li>
+                        <p><span>Benchmark Solutions</span><br />
+                            8/2010 - 10/2012 (Software Developer)</p>
+                    </li>
+                    <li>
+                        <p><span>Lab49</span><br />
+                            11/2009 - 5/2010 (Software Developer)</p>
+                    </li>
+                </ul>
+                <h1 id="education">Education</h1>
+                <ul>
+                    <li>University of Texas at Austin<br /><br />
+                        B.S. Mathematics (sp. Scientific Computation) (2006)</li>
+                </ul>
+            </div>
+            <div id="vcr_controls">
+                <button type="button" id="vcr"></button>
+                <button type="button" id="theme"></button>
+            </div>
+        </div>
+    </div>
+    <script src="./index.js"></script>
+</body>
+
+</html>

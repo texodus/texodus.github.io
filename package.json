@@ -1,0 +1,19 @@
+{
+  "name": "texodus.github.io",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "format": "biome format --write .",
+    "lint": "biome lint .",
+    "check": "biome check --write ."
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@biomejs/biome": "2.4.6",
+    "gh-markdown-cli": "^0.2.0",
+    "mdpdf": "^3.1.0",
+    "serve": "^14.2.5"
+  }
+}
